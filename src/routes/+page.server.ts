@@ -1,19 +1,29 @@
 'use strict';
 
-export const load = async () => {
-	const token = '8WT05LTmEmJBmBWHROWGYmjulMDp3EIa38thJTBzc0R4VAGBVMpsifRsXu3bYPz7';
+import { API_TOKEN } from '$env/static/private';
+import type { PageServerLoad } from './$types';
 
-	if (!token) console.log('No Token!');
+export const load: PageServerLoad = async () => {
+	const token = API_TOKEN;
 
-	const response = await fetch('https://north-case-api.vercel.app/api', {
-		headers: { Authorization: token }
-	});
+	if (!token) {
+		console.warn('No auth token found.');
+		return { success: false, data: null };
+	}
 
-	if (!response.ok) console.log('Error fetching!');
+	try {
+		const response = await fetch('https://north-case-api.vercel.app/api', {
+			headers: { Authorization: token }
+		});
 
-	if (response.ok) {
+		if (!response.ok) {
+			throw new Error(`API request failed with status ${response.status}`);
+		}
+
 		const data = await response.json();
-
-		return data;
+		return { success: true, data };
+	} catch (error) {
+		console.error('Error fetching AWS savings data:', error);
+		return { success: false, data: null };
 	}
 };

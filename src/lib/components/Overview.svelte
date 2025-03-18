@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
+	import type { Overview } from '../../types/api-types';
 	import Card from './Card.svelte';
 	import BankNotes from './icons/BankNotes.svelte';
 	import Calendar from './icons/Calendar.svelte';
 	import TrendingUp from './icons/TrendingUp.svelte';
 	import SectionHeader from './SectionHeader.svelte';
 
-	export let overview;
+	export let overview: Overview;
 </script>
 
 <div class="flex flex-col gap-6">
