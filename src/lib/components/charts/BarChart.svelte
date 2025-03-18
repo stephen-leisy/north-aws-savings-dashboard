@@ -9,6 +9,8 @@
 	export let labels: string[] = [];
 	export let data: number[] = [];
 
+	const colibri = '#9747FF';
+
 	onMount(() => {
 		if (chartCanvas) {
 			chartInstance = new Chart(chartCanvas, {
@@ -19,7 +21,7 @@
 						{
 							data,
 							borderRadius: 6,
-							backgroundColor: '#9747FF'
+							backgroundColor: colibri
 						}
 					]
 				},

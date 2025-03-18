@@ -1,8 +1,8 @@
 <script lang="ts">
-	import BarChart from '$lib/components/BarChart.svelte';
+	import BarChart from '$lib/components/charts/BarChart.svelte';
 	import ChartWrapper from '$lib/components/ChartWrapper.svelte';
 	import type { SavingsByCategory, SavingsTrends } from '../../types/api-types';
-	import LineChart from './LineChart.svelte';
+	import LineChart from './charts/LineChart.svelte';
 
 	export let savingsByCategory: SavingsByCategory[];
 	export let savingsTrends: SavingsTrends[];

@@ -8,6 +8,8 @@
 	export let labels: string[] = [];
 	export let data: number[] = [];
 
+	const colibri = '#9747FF';
+
 	onMount(() => {
 		if (chartCanvas) {
 			chartInstance = new Chart(chartCanvas, {
@@ -17,11 +19,11 @@
 					datasets: [
 						{
 							data,
-							borderColor: '#9747FF',
+							borderColor: colibri,
 							backgroundColor: 'rgba(151, 71, 255, 0.2)',
 							borderWidth: 2,
 							pointRadius: 5,
-							pointBackgroundColor: '#9747FF',
+							pointBackgroundColor: colibri,
 							fill: true,
 							tension: 0.3
 						}
